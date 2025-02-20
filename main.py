@@ -3,41 +3,30 @@ import heapq
 
 
 def bfs_shortest_path(graph, start, goal):
-    # Keep track of explored nodes
     explored = set()
-    # Keep track of all the paths to be checked
     queue = deque([[start]])
 
-    # Return path if start is goal
     if start == goal:
         return [start]
 
-    # Loop to traverse the graph with the help of the queue
     while queue:
-        # Pop the first path from the queue
         path = queue.popleft()
-        # Get the last node from the path
         node = path[-1]
 
         if node not in explored:
             neighbours = graph[node]
-            # Go through all neighbour nodes, construct a new path and push it into the queue
             for neighbour in neighbours:
                 new_path = list(path)
                 new_path.append(neighbour)
                 queue.append(new_path)
-                # Return path if neighbour is goal
+
                 if neighbour == goal:
                     return new_path
 
-            # Mark node as explored
             explored.add(node)
 
-    # In case there's no path between the 2 nodes
     return "No path found"
 
-
-# Define the graph
 graph = {
     'A': ['B', 'D'],
     'B': ['C', 'E'],
@@ -49,12 +38,9 @@ graph = {
     'H': ['I'],
     'I': []
 }
-
-# Example usage
 start = 'A'
 goal = 'I'
 print(f"Shortest path from {start} to {goal}: {bfs_shortest_path(graph, start, goal)}")
-
 
 print("##############################################")
 
@@ -114,7 +100,7 @@ def is_valid(board, row, col):
 
 def solve_n_queens(n):
     solutions = []
-    stack = [(0, [1, -1, -1, -1])]  # Start with the initial board configuration
+    stack = [(0, [1, -1, -1, -1])]
 
     while stack:
         row, board = stack.pop()
@@ -138,7 +124,6 @@ def print_board(board):
         print(' '.join(line))
     print()
 
-# Solve the 4-Queens problem
 solutions = solve_n_queens(4)
 print(f"Total solutions: {len(solutions)}")
 for solution in solutions:
