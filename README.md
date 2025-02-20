@@ -1,7 +1,7 @@
 ## Graph Search Algorithms
 This project implements various graph search algorithms in Python, including Breadth-First Search (BFS), Uniform Cost Search (UCS), and Depth-First Search (DFS) for solving the N-Queens problem.  
 
-## Algorithms Implemented
+# Algorithms Implemented
 
 ## 1. Breadth-First Search (BFS)
 BFS is used to find the shortest path in an unweighted graph. It explores nodes level by level using a queue data structure.  
